@@ -1,22 +1,13 @@
 #include <stdio.h>
 
-#define IN 1
-#define OUT 0
-
 int main()
 {
-    int c, nw, state = OUT;
-    c = nw = 0;
+    int c;
 
     while((c = getchar()) != EOF) {
-        if(c == ' ' || c == '\n' || c == '\t') 
-            state = OUT;
-
-        else if(c == OUT) {
-            state = IN;
-            nw++;
-        }  
+         if(c == '\t' || c == ' ' || c == '\n') 
+            c = '\n';  
+           putchar(c);  
     }
-    printf("%d", nw);
     return 0;
 }
