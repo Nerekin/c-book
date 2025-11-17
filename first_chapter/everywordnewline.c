@@ -15,8 +15,8 @@ int main()
                 state = OUT;
             }
          } else {
-            putchar(c);
-            state = IN;
+                putchar(c);
+                state = IN;
          }
     }
     return 0;
