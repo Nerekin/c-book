@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-#define ASCII 128
+#define ASCII 256
 
 int main() {
     int c,i;
@@ -9,15 +9,30 @@ int main() {
     for(i = 0; i < ASCII; ++i) {
         counts[i] = 0;
     }
+
     while((c = getchar()) != EOF) {       
          ++counts[c];
         }
+
     for(i = 0; i < ASCII; ++i) {
-        if(i == '\n') {
-            printf("Symbol '\\n': %d time\n", counts[i]);
-        }
-        else if(counts[i] >= 1){
-            printf("Symbol '%c': %d time\n", i, counts[i]);
+        if(counts[i] > 0) {
+            if(i == '\n') {
+                printf("Symbol '\\n' (New line)       : %d | ", counts[i]);
+            }
+            else if(i == '\t') {
+                printf("Symbol '\\t' (Tab)            : %d | ", counts[i]);
+            }
+            else if(i == ' ') {
+                printf("Symbol ' ' (Space)           : %d | ", counts[i]);
+            }      
+            else if(i >= 33 && i <= 126){
+                printf("Symbol '%c'                   : %d | ", i, counts[i]);
+            }
+
+            for(int j = 0; j < counts[i]; ++j) {
+                putchar('#');
+            }
+            putchar('\n');
         }
     }
   
