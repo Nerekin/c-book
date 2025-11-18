@@ -2,28 +2,32 @@
 
 #define IN 1
 #define OUT 0
+#define MAX_LENGTH 11
 
 int main()
 {
-    int c,i,state,nchars,nword;
+    int c,i,state,current_len;
     state = OUT;
+    current_len = 0;
+
+    int nchars[MAX_LENGTH];
+        for(i = 0; i < MAX_LENGTH; ++i)
+        nchars[i] = 0;
 
     while((c = getchar()) != EOF) {
         if(c == '\n' || c == ' ' || c == '\t') {
             if(state == IN) {
+                ++nchars[current_len];
                 state = OUT;
             }
         } else {
-            ++n;
-            int length[nwords];
-            
-            for(i = 0; i < nwords; ++i) {
-                length[i] += nwords;   
-            }         
-            state = IN;
+            current_len++;
+                state = IN;
         }
     }
-       
+
+        for(i = 0; i < MAX_LENGTH; ++i)
+            printf(" %d\n", nchars[i]); 
 
     return 0;
 }
