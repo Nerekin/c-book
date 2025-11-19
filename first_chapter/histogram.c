@@ -11,7 +11,7 @@ int main()
     current_len = 0;
 
     int nchars[MAX_LENGTH];
-    for(i = 0; i < MAX_LENGTH; ++i)
+        for(i = 0; i < MAX_LENGTH; ++i)
         nchars[i] = 0;
 
     while((c = getchar()) != EOF) {
@@ -23,6 +23,7 @@ int main()
                 else {
                     ++nchars[MAX_LENGTH - 1];
                 }
+
                 state = OUT;
                 current_len = 0;
             }
@@ -32,14 +33,8 @@ int main()
         }
     }
 
-    for (i = 0; i < MAX_LENGTH; ++i)
-        printf("Довжина %2d: %d разів\n", i, nchars[i]);
-
-    for(i = 0; i < MAX_LENGTH; ++i)
+        for(i = 0; i < MAX_LENGTH; ++i)
             printf("Довжина %2d: %d разів\n", i, nchars[i]);
 
     return 0;
 }
-
-
-        
