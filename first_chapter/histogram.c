@@ -11,7 +11,7 @@ int main()
     current_len = 0;
 
     int nchars[MAX_LENGTH];
-        for(i = 0; i < MAX_LENGTH; ++i)
+    for(i = 0; i < MAX_LENGTH; ++i)
         nchars[i] = 0;
 
     while((c = getchar()) != EOF) {
