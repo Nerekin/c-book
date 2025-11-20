@@ -26,20 +26,23 @@ int main() {
     float celsius, fahr;
     int ans;
 
-    printf("Hello, it`s temperature conversion programm\nChoose what u want to convertate (c/F): ");
+    printf("Hello, it`s temperature conversion programm\nChoose conversation (c/F): ");
     ans = getchar();
 
     if(ans == 'c' || ans == 'C') {
         printf("\nFahr\t   Celsius\n");
+        printf("-----------------\n");
         celsconv();
     }
 
     else if (ans == 'f' || ans == 'F') {
         printf("\nCelsius\t    Fahr\n");
+        printf("-----------------\n");
         fahrconv();
 
     } else {
-        printf("\nEnter only c,C/F,f\n");
+        printf("----------------------\n");
+        printf("Enter only c/C || F/f\n");
         return 1;
     }
 
