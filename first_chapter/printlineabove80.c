@@ -22,7 +22,7 @@ int main() {
 
     while((len = getLine(line, MAXLINE))) {
         if(len > LIMIT) {
-            printf("%s ", line);
+            printf("%s\n", line);
         }
     }
     return 0;
