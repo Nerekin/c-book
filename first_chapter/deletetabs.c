@@ -16,25 +16,21 @@ int getLine(char str[], int lim) {
     return i;
 }
 
-void copy(char to[], char from[]) {
-    int i = 0;
-    while((to[i] = from[i]) != '\0')
-        ++i;
-}
-
 int main() {
-    char line[MAXLINE],prev[MAXLINE];
+    char line[MAXLINE];
     int len,i;
 
     while((len = getLine(line, MAXLINE))) {
         for(i = 0; i < len; ++i) {
-            prev[i] = line[i] - 1;
-            if(line[i] == ' ' && prev[i] == ' ') 
-                continue;
-            else if(line[i] == '\t' && prev[i] == '\t')
-                continue;
-            else
-                printf("%d", line[i]);
+            if(line[i] == ' ' && line[i - 1] == ' ') {
+            }
+            else if(line[i - 1] == '\t' && line[i - 1] == '\t') {
+            }       
+            else {
+                if(line[0] != '\n'){
+                    putchar(line[i]);
+                }
+            }
         } 
     }
     return 0;
