@@ -8,8 +8,9 @@ int main()
 {
     int fahr;
 
-    for(fahr = LOWER; fahr <= UPPER; fahr += STEP)
+    for(fahr = LOWER; fahr <= UPPER; fahr += STEP) {
     printf("%3d %6.1f\n", fahr, (5.0/9) *(fahr-32));
-
+    }
+    
     return 0;
 }
