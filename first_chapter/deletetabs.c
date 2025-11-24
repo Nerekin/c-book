@@ -9,8 +9,8 @@ int getLine(char str[], int lim) {
         str[i] = c;
     }
     if(c == '\n') {
+        str[i] = c; 
         ++i;
-        str[i] = c;
     }
     str[i] = '\0';
     return i;
@@ -18,20 +18,19 @@ int getLine(char str[], int lim) {
 
 int main() {
     char line[MAXLINE];
-    int len,i;
+    int len, i;
 
     while((len = getLine(line, MAXLINE))) {
-        for(i = 0; i < len; ++i) {
-            if(line[i] == ' ' && line[i - 1] == ' ') {
-            }
-            else if(line[i - 1] == '\t' && line[i - 1] == '\t') {
-            }       
-            else {
-                if(line[0] != '\n'){
-                    putchar(line[i]);
-                }
-            }
-        } 
+        i = len - 2;
+
+        while(i >= 0 && (line[i] == ' ' || line[i] == '\t')) {
+            --i;
+        }
+        if(i >= 0) {
+            line[i + 1] = '\n';
+            line[i + 2] = '\0';
+            printf("%s", line);
+        }
     }
     return 0;
 }
