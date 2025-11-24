@@ -18,20 +18,19 @@ int getLine(char str[], int lim) {
 
 int main() {
     char line[MAXLINE];
-    int len,i;
+    int len, i;
 
     while((len = getLine(line, MAXLINE))) {
-        for(i = 0; i < len; ++i) {
+        for(i = 0; i < len - 1; ++i) {
             if(line[i] == ' ' && line[i - 1] == ' ') {
             }
-            else if(line[i - 1] == '\t' && line[i - 1] == '\t') {
-            }       
+            else if(line[i] == '\t' && line[i - 1] == '\t') {
+            }
             else {
-                if(line[0] != '\n'){
                     putchar(line[i]);
                 }
-            }
         } 
+        putchar('\n');
     }
     return 0;
 }
