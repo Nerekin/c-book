@@ -16,6 +16,16 @@ int getLine(char str[], int lim) {
     return i;
 }
 
+int reverse(char str[], int lenght) {
+    int i;
+    for(i = 0; i < lenght / 2; i++) {
+        char temp = str[i];
+        str[i] = str[lenght - i - 1];
+        str[lenght - i - 1] = temp;
+    }
+    return i;
+}
+
 int main() {
     char line[MAXLINE];
     int len, i;
