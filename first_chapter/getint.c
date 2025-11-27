@@ -1,4 +1,5 @@
 #include <ctype.h>
+#include <stdio.h>
 
 int getch(void);
 void ungetch(int);
@@ -14,10 +15,17 @@ int getint(int *pn)
     }
 
     sign = (c == '-') ? -1 : 1;
-    if (c == '+' || c == '-')
-        c = getch();
+    if (c == '+' || c == '-') {
+        int next_c = getch();
+        if(!isdigit(next_c)) {
+            if(next_c != EOF) 
+                ungetch(next_c);
+            ungetch(c);
+            return 0;
+    }
+    c = next_c;
 
-    for (*pn = 0; isdigit(c), c = getch())
+    for (*pn = 0; isdigit(c); c = getch())
         *pn = 10 * *pn + (c - '0');
 
     *pn *= sign;
@@ -25,6 +33,6 @@ int getint(int *pn)
         ungetch(c);
 
     return c;
-
 }
 
+}
